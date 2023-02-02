@@ -1,0 +1,27 @@
+{
+    "dependencies": {
+        "express": "^4.18.2",
+        "moment": "^2.29.4",
+        "mongodb": "^4.13.0",
+        "mongoose": "^6.9.0",
+        "node.js": "^0.0.1-security"
+    },
+    "scripts": {
+        "start": "node server.js"
+    },
+    "name": "personable_antelope",
+    "version": "1.0.0",
+    "main": "server.js",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/jjohnson673/personable_antelope.git"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/jjohnson673/personable_antelope/issues"
+    },
+    "homepage": "https://github.com/jjohnson673/personable_antelope#readme",
+    "description": ""
+}
