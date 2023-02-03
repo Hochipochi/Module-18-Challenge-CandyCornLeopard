@@ -20,4 +20,4 @@ Use:
 After installation, run npm start
 
 Video Walkthrough:
-TBA
+https://www.loom.com/share/75c3fbcacb7f441d9701af41bd47fd49
