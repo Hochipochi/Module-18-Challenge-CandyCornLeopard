@@ -9,19 +9,19 @@
     "scripts": {
         "start": "node server.js"
     },
-    "name": "personable_antelope",
+    "name": "CandyCornLeopard",
     "version": "1.0.0",
     "main": "server.js",
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/jjohnson673/personable_antelope.git"
+        "url": "git+https://github.com/Hochipochi/Module-18-Challenge-CandyCornLeopard.git"
     },
     "keywords": [],
     "author": "",
     "license": "ISC",
     "bugs": {
-        "url": "https://github.com/jjohnson673/personable_antelope/issues"
+        "url": "https://github.com/Hochipochi/Module-18-Challenge-CandyCornLeopard/issues"
     },
-    "homepage": "https://github.com/jjohnson673/personable_antelope#readme",
+    "homepage": "https://github.com/Hochipochi/Module-18-Challenge-CandyCornLeopard/blob/main/README.md",
     "description": ""
 }
