@@ -1,9 +1,9 @@
-const { User, Thought } = require("../models");
+const { User, Thoughts } = require("../models");
 
 
 module.exports = {
     getThought(req, res) {
-        Thought.find({})
+        Thoughts.find({})
             .then((thought) => res.json(thought))
             .catch((err) => res.status(500).json(err));
     },
@@ -11,18 +11,14 @@ module.exports = {
 
 
     getIndvThought(req, res) {
-        Thought.findOne({ _id: req.params.thoughtId })
+        Thoughts.findOne({ _id: req.params.thoughtId })
             .select("-__v")
-            .then((thought) =>
-                !thought
-                    ? res.status(404).json({ message: "Incorrect ID." })
-                    : res.json(thought)
-            )
+            .then((thought) => res.json(thought))
             .catch((err) => res.status(500).json(err));
     },
 
     createThought(req, res) {
-        Thought.create(req.body)
+        Thoughts.create(req.body)
             .then(({ _id }) => {
                 return User.findOneAndUpdate(
                     { _id: req.body.userId },
@@ -32,14 +28,14 @@ module.exports = {
             })
             .then((thought) =>
                 !thought
-                    ? res.status(404).json({ message: "Incorrect ID." })
-                    : res.json(thought)
+                    ? res.json({ message: "Thought Created!" })
+                    : res.status(404).json({ message: "Incorrect ID." })
             )
             .catch((err) => res.status(500).json(err));
     },
 
     updateThought(req, res) {
-        Thought.findOneAndUpdate(
+        Thoughts.findOneAndUpdate(
             { _id: req.params.thoughtId },
             { $set: req.body },
             { runValidators: true, New: true }
@@ -53,7 +49,7 @@ module.exports = {
     },
 
     deleteThought(req, res) {
-        Thought.findOneAndDelete({ _id: req.params.thoughtId })
+        Thoughts.findOneAndDelete({ _id: req.params.thoughtId })
             .then((thought) =>
                 !thought
                     ? res.status(404).json({ message: "Incorrect ID." })
@@ -72,7 +68,7 @@ module.exports = {
     },
 
     createReaction(req, res) {
-        Thought.findOneAndUpdate(
+        Thoughts.findOneAndUpdate(
             { _id: req.params.thoughtId },
             { $addToSet: { reactions: req.body } },
             { runValidators: true, new: true }
@@ -86,7 +82,7 @@ module.exports = {
     },
 
     deleteReaction(req, res) {
-        Thought.findOneAndUpdate(
+        Thoughts.findOneAndUpdate(
             { _id: req.params.thoughtId },
             { $pull: { reactions: { reactionId: req.params.reactionId } } },
             { runValidators: true, new: true }
